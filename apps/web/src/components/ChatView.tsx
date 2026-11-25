@@ -210,6 +210,7 @@ import { GuestPendingMessages } from "./chat/GuestShareControls";
 import { useDeviceState } from "~/state/device";
 import { BranchToolbar, type BranchToolbarHandle } from "./BranchToolbar";
 import { ComposerContextPermissions } from "./ComposerContextPermissions";
+import { ComposerContextMeter } from "./chat/ComposerContextMeter";
 import { makeWorkspaceFileDropHandlers } from "./chat/workspaceFileDrop";
 import { isEditableFocused } from "../lib/editableFocus";
 import { DEFAULT_RESOLVED_KEYBINDINGS } from "@t3tools/shared/keybindings";
@@ -4063,7 +4064,13 @@ export default function ChatView(props: ChatViewProps) {
                                   }
                                   availableEnvironments={logicalProjectEnvironments}
                                   {...(isServerThread
-                                    ? {}
+                                    ? activeContextWindow
+                                      ? {
+                                          trailing: (
+                                            <ComposerContextMeter usage={activeContextWindow} />
+                                          ),
+                                        }
+                                      : {}
                                     : {
                                         trailing: (
                                           <ComposerContextPermissions
