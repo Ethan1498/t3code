@@ -39,7 +39,7 @@ export function ComposerContextMeter({ usage }: { readonly usage: ContextWindowS
                 : gt("Context: {usedTokens} tokens used", { usedTokens })
             }
             className={cn(
-              "inline-flex h-7 min-w-0 shrink-0 cursor-default items-center gap-1.5 rounded-md border border-transparent px-1.75 font-normal text-sm tabular-nums outline-none focus-visible:ring-2 focus-visible:ring-ring sm:h-6 sm:text-xs",
+              "inline-flex h-7 min-w-0 shrink-0 cursor-default items-center gap-1.5 rounded-md border border-transparent px-1.75 font-normal text-sm tabular-nums outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring sm:h-6 sm:text-xs",
               tone === "error"
                 ? "text-error-foreground"
                 : tone === "warning"
